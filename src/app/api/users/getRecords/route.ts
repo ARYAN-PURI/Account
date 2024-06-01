@@ -23,7 +23,8 @@ export async function GET(){
                                     date:newval.date,
                                     price:newval.price,
                                     userName:val.userName,
-                                    mobileNo:val.mobileNo
+                                    mobileNo:val.mobileNo,
+                                    id:val._id
                                 });
                                 cross='g';
                                 break;
@@ -35,7 +36,8 @@ export async function GET(){
                                 date:newval.date,
                                 price:newval.price,
                                 userName:val.userName,
-                                mobileNo:val.mobileNo
+                                mobileNo:val.mobileNo,
+                                id:val._id
                             });
                         }
                         flag='g';
@@ -55,7 +57,8 @@ export async function GET(){
                         date:newval.date,
                         price:newval.price,
                         userName:val.userName,
-                        mobileNo:val.mobileNo
+                        mobileNo:val.mobileNo,
+                        id:val._id
                     }];
                     groupedItems.push(arr);
                 }
@@ -65,7 +68,8 @@ export async function GET(){
                         date:newval.date,
                         price:newval.price,
                         userName:val.userName,
-                        mobileNo:val.mobileNo
+                        mobileNo:val.mobileNo,
+                        id:val._id
                     }];
                     groupedItems.splice(i,0,arr);
                 }

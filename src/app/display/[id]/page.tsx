@@ -74,8 +74,8 @@ export default function DisplayUser({params}:any){
                     <div className="mx-auto">
                         <div className="flex items-center place-content-center text-cyan-600 font-bold text-9xl shadow-lg p-7 bg-slate-300 rounded-lg">&#8471;</div>
                         <div className="flex">
-                                <Link className="mt-5 bg-slate-900 text-white hover:bg-slate-400 hover:text-black hover:font-semibold cursor-pointer py-2 px-3 rounded-lg mx-3" href={`/update/${params.id}`}>Update User</Link>
-                                <button className="mt-5 bg-slate-900 text-white hover:bg-slate-400 hover:text-black hover:font-semibold cursor-pointer py-2 px-3 rounded-lg mx-3" onClick={deleteUser}>Delete user</button>
+                                <Link className="mt-5 bg-slate-900 text-white hover:bg-slate-400 hover:text-black hover:font-semibold cursor-pointer py-2 px-3 rounded-lg mx-3 text-center" href={`/update/${params.id}`}>Update User</Link>
+                                <button className="mt-5 bg-slate-900 text-white hover:bg-slate-400 hover:text-black hover:font-semibold cursor-pointer py-2 px-3 rounded-lg mx-3  text-center" onClick={deleteUser}>Delete user</button>
                         </div>
                     </div>
                 </div>
@@ -84,22 +84,22 @@ export default function DisplayUser({params}:any){
                     {
                         itemsDetails.map((val:any,index:any)=>(
                             <div className="flex place-content-center items-center w-[100vw]" key={index}>
-                            <div className="bg-red-300 rounded-lg my-5 py-2 px-5 w-[60vw]">
-                                <h1 className="text-3xl text-center">{new Date(val[0].date).getDate()}-{new Date(val[0].date).getMonth()}-{new Date(val[0].date).getFullYear()}</h1>
+                            <div className="bg-slate-300 rounded-lg my-5 py-2 px-5 w-[60vw] shadow-lg">
+                                <h1 className="text-3xl text-center font-bold text-orange-600 my-3">{new Date(val[0].date).getDate()}-{new Date(val[0].date).getMonth()}-{new Date(val[0].date).getFullYear()}</h1>
                                 {val.map((newval:any,ind:any)=>(
                                     <div key={ind}>
                                         {
                                             newval.name==="cash"?
-                                                <div className="flex place-content-evenly my-2 bg-green-400 p-2 rounded-md">
-                                                <div className="text-2xl">{ind+1}.</div>
-                                                <div className="text-2xl">{newval.name}</div>
-                                                <div className="text-2xl">Rs.{newval.price}</div>
+                                                <div className="flex place-content-between bg-green-400 py-3 px-5 rounded-md">
+                                                <div className="text-xl text-yellow-900 font-semibold">{ind+1}.</div>
+                                                <div className="text-2xl text-cyan-800 font-bold">{newval.name}</div>
+                                                <div className="text-2xl text-zinc-600 font-bold">Rs.{newval.price}</div>
                                                 </div>
                                             :
-                                                <div className="flex place-content-evenly my-2">
-                                                <div className="text-2xl">{ind+1.}</div>
-                                                <div className="text-2xl">{newval.name}</div>
-                                                <div className="text-2xl">Rs.{newval.price}</div>
+                                                <div className="flex place-content-between py-3 px-5">
+                                                <div className="text-xl text-yellow-900 font-semibold">{ind+1.}</div>
+                                                <div className="text-2xl text-cyan-800 font-bold">{newval.name}</div>
+                                                <div className="text-2xl text-zinc-600 font-bold">Rs.{newval.price}</div>
                                                 </div>
                                         }
                                     </div>

@@ -43,8 +43,8 @@ export default function Display(){
         <div className="h-auto min-h-[100vh]">
             <NavBar/>
             <h1 className="text-center text-2xl my-3">List of All Users</h1>
-            <div className="flex mx-3 my-5 items-center place-content-center">
-                <input type="text" placeholder="Search" value={search} onChange={(e)=>{setSearch(e.target.value)}} className="py-2 px-5 w-[70vw] mx-auto rounded-lg" />
+            <div className="flex mx-3 my-5 items-center place-content-center flex-col md:flex-row ">
+                <input type="text" placeholder="Search" value={search} onChange={(e)=>{setSearch(e.target.value)}} className="py-2 px-5 md:w-[50vw] xl:w-[60vw] mx-auto rounded-lg my-4" />
                 <div className="mx-auto">
                     <label htmlFor="searchBy" className="text-xl">Search By</label>
                     <select id="searchBy" className="px-2 py-2 rounded-lg" onChange={(e)=>{setsearchType(e.target.value)}}>
