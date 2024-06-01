@@ -2,7 +2,7 @@
 import React from "react";
 import NavBar from "@/Components/NavBar";
 import axios from "axios";
-export default function addUser(){
+export default function AddUser(){
     const [isUserAdded,setIsUserAdded]=React.useState(false);
     const [isloading,setIsLoading]=React.useState(false);
     const [user,setUser]=React.useState({

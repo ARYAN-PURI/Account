@@ -26,12 +26,12 @@ export default function Records(){
             {isloading?<div className="flex place-content-center"><div className="py-2 px-5 rounded-lg mt-5 text-white bg-green-900 w-[10vw] text-center mx-auto">Loading</div></div>
             :
             <div>
-                {recordsData.map((val:any,ind:any)=>(
-                    <div className="flex place-content-center items-center w-[100vw] flex-col">
+                {recordsData.map((val:any,index:any)=>(
+                    <div className="flex place-content-center items-center w-[100vw] flex-col" key={index}>
                     <div className="bg-red-300 rounded-lg my-5 py-2 px-5 w-[60vw]">
                         <h1 className="text-3xl text-center">{new Date(val[0].date).getDate()}-{new Date(val[0].date).getMonth()}-{new Date(val[0].date).getFullYear()}</h1>
                         {val.map((newval:any,ind:any)=>(
-                            <div>
+                            <div key={ind}>
                                 {
                                     newval.name==="cash"?
                                         <div className="flex place-content-evenly my-2 bg-green-400 p-2 rounded-md">
@@ -53,13 +53,13 @@ export default function Records(){
                     </div>
                         <div className="flex items-center">
                             <div className="mx-5 text-2xl text-slate-900 font-bold underline mb-9">
-                                Sale: {dailyData[ind].sale}
+                                Sale: {dailyData[index].sale}
                             </div>
                             <div className="mx-5 text-2xl text-slate-900 font-bold underline mb-9">
-                                Cash Collected: {dailyData[ind].cashCollected}
+                                Cash Collected: {dailyData[index].cashCollected}
                             </div>
                             <div className="mx-5 text-2xl text-slate-900 font-bold underline mb-9">
-                                Lend Money: {dailyData[ind].lendMoney}
+                                Lend Money: {dailyData[index].lendMoney}
                             </div>
                         </div>
                     </div>

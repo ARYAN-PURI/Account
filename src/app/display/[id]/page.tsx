@@ -82,12 +82,12 @@ export default function DisplayUser({params}:any){
                 <h1 className="text-center text-2xl my-3">Record History</h1>
                 <div>
                     {
-                        itemsDetails.map((val:any)=>(
-                            <div className="flex place-content-center items-center w-[100vw]">
+                        itemsDetails.map((val:any,index:any)=>(
+                            <div className="flex place-content-center items-center w-[100vw]" key={index}>
                             <div className="bg-red-300 rounded-lg my-5 py-2 px-5 w-[60vw]">
                                 <h1 className="text-3xl text-center">{new Date(val[0].date).getDate()}-{new Date(val[0].date).getMonth()}-{new Date(val[0].date).getFullYear()}</h1>
                                 {val.map((newval:any,ind:any)=>(
-                                    <div>
+                                    <div key={ind}>
                                         {
                                             newval.name==="cash"?
                                                 <div className="flex place-content-evenly my-2 bg-green-400 p-2 rounded-md">

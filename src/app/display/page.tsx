@@ -3,7 +3,7 @@ import NavBar from "@/Components/NavBar";
 import axios from "axios";
 import Link from "next/link";
 import React from "react";
-export default function display(){
+export default function Display(){
     const [searchType,setsearchType]=React.useState("userName");
     const [search,setSearch]=React.useState("");
     const [isloading,setIsLoading]=React.useState(true);
