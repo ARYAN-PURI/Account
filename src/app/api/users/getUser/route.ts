@@ -2,6 +2,7 @@ import connect from "@/dbConfig/connect";
 import userModel from "@/models/userModel";
 import { NextRequest,NextResponse } from "next/server";
 connect();
+export const revalidate = 0;
 export async function POST(req:NextRequest){
     try{
         let groupedItems:any=[];

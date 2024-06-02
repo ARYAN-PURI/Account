@@ -1,6 +1,7 @@
 import connect from "@/dbConfig/connect";
 import userModel from "@/models/userModel";
 import { NextRequest,NextResponse } from "next/server";
+export const revalidate = 0;
 connect();
 export async function GET(){
     try{

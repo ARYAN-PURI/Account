@@ -1,5 +1,6 @@
 import connect from "@/dbConfig/connect";
 import userModel from "@/models/userModel";
+export const revalidate = 0;
 import { NextRequest,NextResponse } from "next/server";
 connect();
 export async function POST(req:NextRequest){
