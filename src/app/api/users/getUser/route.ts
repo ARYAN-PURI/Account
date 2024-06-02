@@ -7,6 +7,7 @@ export async function POST(req:NextRequest){
         let groupedItems:any=[];
         let reqBody=await req.json();
         let user=await userModel.findOne({_id:reqBody.id});
+        let index=0;
         user.itemsDetails.forEach((val:any)=>{
             let flag='r';
             for(let i=0;i<groupedItems.length;i++){
@@ -14,15 +15,16 @@ export async function POST(req:NextRequest){
                     && new Date(groupedItems[i][0].date).getMonth()===new Date(val.date).getMonth()
                     && new Date(groupedItems[i][0].date).getDate()===new Date(val.date).getDate())
                 {
-                    groupedItems[i].push(val);
+                    groupedItems[i].push({...val,index:index});
                     flag='g';
                     break;
                 }
             }
             if(flag==='r'){
-                let arr=[{...val}];
+                let arr=[{...val,index:index}];
                 groupedItems.push(arr);
             }
+            index++;
         });
         return NextResponse.json({
             message:"User Fetched Success",

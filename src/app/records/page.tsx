@@ -21,7 +21,7 @@ export default function Records(){
         getRecords();
     },[])
     return(
-        <div className="min-h-[100vh]">
+        <div className="min-h-[100vh] w-[100vw]">
             <NavBar/>
             <h1 className="text-2xl text-center my-3" >Records</h1>
             {isloading?<div className="flex place-content-center"><div className="py-2 px-5 rounded-lg mt-5 text-white bg-green-900 w-[10vw] text-center mx-auto">Loading</div></div>
@@ -53,14 +53,14 @@ export default function Records(){
                         ))}
                     </div>
                         <div className="flex items-center">
-                            <div className="mx-5 text-2xl text-slate-900 font-bold underline mb-9">
-                                Sale: {dailyData[index].sale}
+                            <div className="flex flex-col items-center place-content-center mx-5 text-2xl text-slate-900 font-bold underline mb-9">
+                                Sale: <span className="text-green-500 my-2 text-3xl">{dailyData[index].sale}</span>
                             </div>
-                            <div className="mx-5 text-2xl text-slate-900 font-bold underline mb-9">
-                                Cash Collected: {dailyData[index].cashCollected}
+                            <div className="flex flex-col items-center place-content-center mx-5 text-2xl text-slate-900 font-bold underline mb-9">
+                                Cash Collected: <span className="text-green-500 my-2 text-3xl">{dailyData[index].cashCollected}</span>
                             </div>
-                            <div className="mx-5 text-2xl text-slate-900 font-bold underline mb-9">
-                                Lend Money: {dailyData[index].lendMoney}
+                            <div className="flex flex-col items-center place-content-center mx-5 text-2xl text-slate-900 font-bold underline mb-9">
+                                Lend Money: <span className="text-green-500 my-2 text-3xl">{dailyData[index].lendMoney}</span>
                             </div>
                         </div>
                     </div>

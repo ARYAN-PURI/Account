@@ -5,8 +5,7 @@ let userSchema=new mongoose.Schema({
         required:[true,"Please Provide a User Name"]
     },
     mobileNo:{
-        type:Number,
-        required:[true,"Please Provide Mobile Number"]
+        type:Number
     },
     relativeName:{
         type:String,
