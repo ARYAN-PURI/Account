@@ -100,7 +100,7 @@ export default function DisplayUser({params}:any){
                                 {val.map((newval:any,ind:any)=>(
                                     <div key={ind}>
                                         {
-                                            newval.name==="cash"?
+                                            newval.name==="cash" || newval.name==="Cash" || newval.name==="CASH"?
                                                 <div className="flex place-content-between bg-green-400 py-3 px-5 rounded-md">
                                                 <div className="text-xl text-yellow-900 font-semibold">{ind+1}.</div>
                                                 <div className="text-2xl text-cyan-800 font-bold">{newval.name}</div>
