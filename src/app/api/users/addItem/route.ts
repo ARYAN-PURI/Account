@@ -12,7 +12,7 @@ export async function POST(req:NextRequest){
             price:reqBody.price,
             date:reqBody.date
         });
-        if(reqBody.name==="cash"){
+        if(reqBody.name==="cash" || reqBody.name==="Cash" || reqBody.name==="CASH"){
             user.balance-=Number(reqBody.price);
         }
         else{
