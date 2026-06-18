@@ -1,46 +1,66 @@
 "use client";
-import NarBar from "@/Components/NavBar";
+import NavBar from "@/Components/NavBar";
 import axios from "axios";
 import React from "react";
+
+const stats = [
+  { key: "nfUsers", label: "Total Users", prefix: "" },
+  { key: "sale", label: "Total Sale", prefix: "₹" },
+  { key: "cash", label: "Cash Collected", prefix: "₹" },
+  { key: "lend", label: "Lend Money", prefix: "₹" },
+];
+
 export default function Home() {
-  let [data,setData]:any=React.useState({});
-  const [isloading,setIsLoading]=React.useState(true);
-  async function getData(){
-    try{
-      let response=await axios.get("/api/users/getNumbers");
+  const [data, setData]: any = React.useState({});
+  const [isloading, setIsLoading] = React.useState(true);
+
+  async function getData() {
+    try {
+      const response = await axios.get("/api/users/getNumbers");
       setData(response.data);
       setIsLoading(false);
-      }catch(error:any){
+    } catch (error: any) {
       console.log(error);
     }
   }
-  React.useEffect(()=>{
+
+  React.useEffect(() => {
     getData();
-  },[]);
+  }, []);
+
   return (
-        <div className="h-[100vh]">
-        <NarBar/>
-        <h1 className="underline text-5xl font-sans h-[50vh] flex place-content-center items-center">Puri Cloth House</h1>
-        {isloading?<div className="flex items-center place-content-center"><div className="py-2 px-5 rounded-lg mt-5 text-white bg-green-900 w-[10vw] text-center">Loading</div></div>
-        :
-        <div className="flex place-content-evenly">
-          <div>
-            <div className="text-bg-slate-900 text-2xl my-2 underline font-semibold">No of Users</div>
-            <div className="text-3xl text-green-500 font-extrabold">{data.nfUsers}</div>
+    <div className="min-h-screen bg-slate-50">
+      <NavBar />
+      <div className="pt-14">
+        <div className="max-w-6xl mx-auto px-4 py-16">
+          <div className="mb-10">
+            <h1 className="text-3xl font-bold text-slate-900">Dashboard</h1>
+            <p className="text-slate-500 mt-1">Overview of Puri Cloth House accounts</p>
           </div>
-          <div>
-            <div className="text-bg-slate-900 text-2xl my-2 underline font-semibold">Total Sale</div>
-            <div className="text-3xl text-green-500 font-extrabold">{data.sale}</div>
-          </div>
-          <div>
-            <div className="text-bg-slate-900 text-2xl my-2 underline font-semibold">Cash Collected</div>
-            <div className="text-3xl text-green-500 font-extrabold">{data.cash}</div>
-          </div>
-          <div>
-            <div className="text-bg-slate-900 text-2xl my-2 underline font-semibold">Lend Money</div>
-            <div className="text-3xl text-green-500 font-extrabold">{data.lend}</div>
-          </div>
-        </div>}
+
+          {isloading ? (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[...Array(4)].map((_, i) => (
+                <div key={i} className="bg-white rounded-xl border border-slate-200 p-4 sm:p-6 animate-pulse">
+                  <div className="h-4 bg-slate-200 rounded w-3/4 mb-4" />
+                  <div className="h-8 bg-slate-200 rounded w-1/2" />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {stats.map((stat) => (
+                <div key={stat.key} className="bg-white rounded-xl border border-slate-200 p-4 sm:p-6 shadow-sm">
+                  <p className="text-xs sm:text-sm font-medium text-slate-500 mb-2">{stat.label}</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-indigo-600">
+                    {stat.prefix}{data[stat.key] ?? 0}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
+      </div>
+    </div>
   );
 }
